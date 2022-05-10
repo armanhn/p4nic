@@ -49,32 +49,3 @@ class HomePage extends StatelessWidget {
         });
   }
 }
-
-class _VerifyEmailView extends StatefulWidget {
-  const _VerifyEmailView({Key? key}) : super(key: key);
-
-  @override
-  State<_VerifyEmailView> createState() => __VerifyEmailViewState();
-}
-
-class __VerifyEmailViewState extends State<_VerifyEmailView> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Verify Email"),
-      ),
-      body: Column(
-        children: [
-          Text("Please verify your Email Address"),
-          TextButton(
-              onPressed: () async {
-                final user = FirebaseAuth.instance.currentUser;
-                await user?.sendEmailVerification();
-              },
-              child: const Text("Send Email Verification"))
-        ],
-      ),
-    );
-  }
-}
