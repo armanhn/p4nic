@@ -1,5 +1,4 @@
-import 'dart:developer' as devtools show log;
-
+//import 'dart:html';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +20,7 @@ void main() {
       routes: {
         '/login/': (context) => const LoginView(),
         '/register/': (context) => const RegisterView(),
+        '/notes/': (context) => const NotesView(),
       },
     ),
   );
@@ -111,13 +111,13 @@ Future<bool> showLogoutDialog(BuildContext context) {
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
                 onPressed: () {
                   Navigator.of(context).pop(true);
                 },
-                child: Text('Log out'))
+                child: const Text('Log out'))
           ],
         );
       }).then((value) => value ?? false);
